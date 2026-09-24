@@ -1,0 +1,114 @@
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package ashleighkawaoka
+
+\*----------------------------------------------*/
+
+@use "./_components.scss" as *;
+
+/*
+ *
+ * ANCHOR Responsive Text Sizes 
+------------------------------------------------*/
+:root {
+	/* Minor Third (factor: 1.2)*/
+	--size-010: .193rem;
+	--size-020: .232rem;
+	--size-030: .279rem;
+	--size-040: .334rem;
+	--size-050: .4rem;
+	--size-060: .482rem;
+	--size-070: .579rem;
+	--size-080: .694rem;
+	--size-090: .833rem;
+	--size-100: 1rem;		/* <-- Default */
+	--size-200: 1.2rem;
+	--size-300: 1.44rem;
+	--size-400: 1.728rem;
+	--size-500: 2.074rem;
+	--size-600: 2.488rem;
+	--size-700: 2.986rem;	
+	--size-800: 3.583rem;
+	--size-900: 4.299rem;
+	--size-1000: 5.159rem;
+	
+	@media screen and (min-width: $x-small) {
+		font-size: 1.05rem;
+	}
+	@media screen and (min-width: $small) {
+		font-size: 1.1rem;
+	}
+	@media screen and (min-width: $medium) {
+		font-size: 1.15rem;
+	}
+	@media screen and (min-width: $large) {
+		font-size: 1.2rem;
+	}
+	@media screen and (min-width: $x-large) {
+		font-size: 1.25rem;
+	}	
+	@media screen and (min-width: $xx-large) {
+		font-size: 1.3rem;
+	}
+}
+
+
+/*
+ *
+ * ANCHOR Fonts
+------------------------------------------------*/
+:root {
+	--font-serif: ;
+	--font-sans: ;
+	--font-display: ;
+}
+
+
+/*
+ *
+ * ANCHOR Colors 
+------------------------------------------------*/
+:root {
+	--black: #050505;
+	--white: #FFFFFF;
+}
+
+
+/*
+ *
+ * ANCHOR Margins & Padding
+------------------------------------------------*/
+:root {
+	--margin-wrapper-outer: var(--size-070);
+	// --box-padding: var(--size-070);
+	// --margin-section-vertical: var(--size-600);
+	// --column-gap: var(--size-500);
+
+	@media screen and (min-width: $xx-small) {
+		--margin-wrapper-outer: var(--size-100);
+	}
+	@media screen and (min-width: $medium) {
+		--margin-wrapper-outer: var(--size-300);
+		// --box-padding: var(--size-090);
+		// --margin-section-vertical: var(--size-700);
+	}
+	@media screen and (min-width: $large) {
+		--margin-wrapper-outer: var(--size-500);
+		// --box-padding: var(--size-100);
+		// --margin-section-vertical: var(--size-800);
+	}
+
+	--margin-vertical-large: var(--size-600);
+	--margin-vertical-small: var(--size-100);
+}
+
+
+/*
+ *
+ * ANCHOR Max-Widths
+------------------------------------------------*/
+:root {
+	--wrapper-max-width: 80rem;
+}
