@@ -1,0 +1,130 @@
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package ashleighkawaoka
+
+\*----------------------------------------------*/
+/*----------------------------------------------*\
+    COMPONENTS
+	==========
+
+	@package ashleighkawaoka
+
+\*----------------------------------------------*/
+/* 
+ *
+ * / Variables
+------------------------------------------------*/
+/* Breakpoints */
+/* Responsive Breakpoints */
+/*
+ *
+ * ANCHOR Responsive Text Sizes 
+------------------------------------------------*/
+:root {
+  /* Minor Third (factor: 1.2)*/
+  --size-010: .193rem;
+  --size-020: .232rem;
+  --size-030: .279rem;
+  --size-040: .334rem;
+  --size-050: .4rem;
+  --size-060: .482rem;
+  --size-070: .579rem;
+  --size-080: .694rem;
+  --size-090: .833rem;
+  --size-100: 1rem; /* <-- Default */
+  --size-200: 1.2rem;
+  --size-300: 1.44rem;
+  --size-400: 1.728rem;
+  --size-500: 2.074rem;
+  --size-600: 2.488rem;
+  --size-700: 2.986rem;
+  --size-800: 3.583rem;
+  --size-900: 4.299rem;
+  --size-1000: 5.159rem;
+}
+@media screen and (min-width: 27rem) {
+  :root {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (min-width: 36rem) {
+  :root {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  :root {
+    font-size: 1.15rem;
+  }
+}
+@media screen and (min-width: 64rem) {
+  :root {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 77rem) {
+  :root {
+    font-size: 1.25rem;
+  }
+}
+@media screen and (min-width: 94rem) {
+  :root {
+    font-size: 1.3rem;
+  }
+}
+
+/*
+ *
+ * ANCHOR Fonts
+------------------------------------------------*/
+:root {
+  --font-serif: ;
+  --font-sans: ;
+  --font-display: ;
+}
+
+/*
+ *
+ * ANCHOR Colors 
+------------------------------------------------*/
+:root {
+  --black: #050505;
+  --white: #FFFFFF;
+}
+
+/*
+ *
+ * ANCHOR Margins & Padding
+------------------------------------------------*/
+:root {
+  --margin-wrapper-outer: var(--size-070);
+}
+@media screen and (min-width: 23rem) {
+  :root {
+    --margin-wrapper-outer: var(--size-100);
+  }
+}
+@media screen and (min-width: 48rem) {
+  :root {
+    --margin-wrapper-outer: var(--size-300);
+  }
+}
+@media screen and (min-width: 64rem) {
+  :root {
+    --margin-wrapper-outer: var(--size-500);
+  }
+}
+:root {
+  --margin-vertical-large: var(--size-600);
+  --margin-vertical-small: var(--size-100);
+}
+
+/*
+ *
+ * ANCHOR Max-Widths
+------------------------------------------------*/
+:root {
+  --wrapper-max-width: 80rem;
+}/*# sourceMappingURL=variables.css.map */

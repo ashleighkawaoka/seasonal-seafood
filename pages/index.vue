@@ -17,6 +17,7 @@ const { data: seafood, error } = await useSanityQuery(query)
 <template>
   <div>
     <h1>Seasonal Seafood</h1>
+    <LocationPicker />
     <p v-if="error">Error: {{ error }}</p>
     <pre>{{ seafood }}</pre>
   </div>
