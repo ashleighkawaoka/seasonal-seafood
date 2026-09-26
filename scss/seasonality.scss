@@ -1,0 +1,51 @@
+.seasonality-bar {
+  display: flex;
+
+  &__segment {
+    flex: 1;
+    height: 0.5rem;
+
+    &--peak { background: green; }
+    &--limited { background: orange; }
+    &--frozen { background: yellow; }
+    &--none { background: white; border: 1px solid #ddd; }
+  }
+
+  &--labeled &__segment {
+    height: 2rem;
+    position: relative;
+  }
+
+  &__month {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 0.6rem;
+    white-space: nowrap;
+  }
+}
+
+.seasonality-key {
+  &__star { display: flex; align-items: center; gap: 0.5rem; }
+  &__star-icon { color: gold; }
+
+  &__colors {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__color-item { display: flex; align-items: center; gap: 0.4rem; }
+
+  &__swatch {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+
+    &--peak { background: green; }
+    &--limited { background: orange; }
+    &--frozen { background: yellow; }
+    &--none { background: white; border: 1px solid #ddd; }
+  }
+}

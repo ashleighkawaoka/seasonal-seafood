@@ -1,0 +1,46 @@
+.location-picker {
+  position: relative; // lets the list sit directly under the input
+
+  &__current {}
+  &__label {}
+  &__name {}
+
+  &__field-wrap {
+    position: relative;
+  }
+
+  &__field {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid currentColor;
+  }
+
+  // The dropdown panel
+  &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-height: 16rem;
+    overflow-y: auto;
+    background: var(--white);
+    border: 1px solid currentColor;
+  }
+
+  // Each result row
+  &__option {
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+
+    // Hover and keyboard highlight share this class
+    &.is-active {
+      background: var(--black);
+      color: var(--white);
+    }
+  }
+
+  &__status {}
+  &__detect {}
+  &__message {}
+}

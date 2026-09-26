@@ -1,0 +1,69 @@
+.seasonality-bar {
+  display: flex;
+}
+.seasonality-bar__segment {
+  flex: 1;
+  height: 0.5rem;
+}
+.seasonality-bar__segment--peak {
+  background: green;
+}
+.seasonality-bar__segment--limited {
+  background: orange;
+}
+.seasonality-bar__segment--frozen {
+  background: yellow;
+}
+.seasonality-bar__segment--none {
+  background: white;
+  border: 1px solid #ddd;
+}
+.seasonality-bar--labeled .seasonality-bar__segment {
+  height: 2rem;
+  position: relative;
+}
+.seasonality-bar__month {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 0.6rem;
+  white-space: nowrap;
+}
+
+.seasonality-key__star {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.seasonality-key__star-icon {
+  color: gold;
+}
+.seasonality-key__colors {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.seasonality-key__color-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.seasonality-key__swatch {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.seasonality-key__swatch--peak {
+  background: green;
+}
+.seasonality-key__swatch--limited {
+  background: orange;
+}
+.seasonality-key__swatch--frozen {
+  background: yellow;
+}
+.seasonality-key__swatch--none {
+  background: white;
+  border: 1px solid #ddd;
+}/*# sourceMappingURL=seasonality.css.map */
