@@ -20,6 +20,8 @@ function distanceKm(lat1, lng1, lat2, lng2) {
 }
 
 // Adds distances to each water, sorts nearest first, and records the nearest distance
+const NEARBY_RADIUS_KM = 322 // ~200 miles
+
 function prepareItem(item, location) {
   const waters = (item.waters ?? [])
     .map((water) => ({
@@ -28,10 +30,13 @@ function prepareItem(item, location) {
     }))
     .sort((a, b) => a.distance - b.distance)
 
+  const nearestDistance = waters.length ? waters[0].distance : Infinity
+
   return {
     ...item,
     waters,
-    nearestDistance: waters.length ? waters[0].distance : Infinity,
+    nearestDistance,
+    isNearby: nearestDistance <= NEARBY_RADIUS_KM,
   }
 }
 

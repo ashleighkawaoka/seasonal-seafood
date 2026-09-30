@@ -42,11 +42,7 @@ const filteredGroups = computed(() =>
     <h1>Seasonal Seafood</h1>
     <UserLocation />
     <FilterBar :items="seafood ?? []" />
-
-    <div v-if="seafood?.length">
-      <SeasonalityKey :show-star="true" />
-      <SeasonalityBar :item="seafood[0]" :labeled="true" />
-    </div>
+    <SeasonalityKey :show-star="true" />
 
     <section v-for="group in filteredGroups" :key="group.month" class="month-group">
       <h2 class="month-group__title">{{ group.name }}</h2>
