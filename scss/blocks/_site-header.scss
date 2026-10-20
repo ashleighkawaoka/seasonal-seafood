@@ -6,16 +6,17 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: var(--size-050) var(--size-200);
-	padding-block: var(--size-080);
+	padding-block: var(--size-050);
 	padding-inline: var(--gutter);
 	background: var(--color-nav);
 	color: var(--color-nav-text);
+	font-family: var(--font-sans);
 	font-size: var(--size-090);
+	font-weight: 400;
 	text-transform: uppercase;
 
 	@media screen and (min-width: $small) {
-		font-size: var(--size-100);
-		padding-block: var(--size-100);
+		padding-block: var(--size-060);
 	}
 
 	&__brand {
@@ -42,14 +43,12 @@
 	}
 
 	&__link {
-		padding-bottom: var(--size-010);
-		border-bottom: calc(var(--size-010) / 2) solid transparent;
 		text-decoration: none;
 
-		// Thin yellow line on hover and under the current page
+		// Yellow text on hover and for the current page
 		&:hover,
 		&--active {
-			border-bottom-color: var(--yellow);
+			color: var(--yellow);
 		}
 	}
 }
