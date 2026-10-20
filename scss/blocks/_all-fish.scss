@@ -1,0 +1,14 @@
+.all-fish {
+	// Full width between the page margins, lined up with the fish cards
+	&__search {
+		margin-top: var(--size-300);
+	}
+
+	&__empty {
+		padding: 0 var(--gutter) var(--size-700);
+		font-family: var(--font-display);
+		font-size: var(--size-400);
+		text-align: center;
+		text-transform: uppercase;
+	}
+}

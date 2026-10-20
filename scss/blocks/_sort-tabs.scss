@@ -1,0 +1,45 @@
+@use "../components" as *;
+
+.sort-tabs {
+	padding: var(--size-600) var(--gutter) var(--size-700);
+	text-align: center;
+
+	&__label {
+		margin-bottom: var(--size-060);
+		font-size: var(--size-200);
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--size-060) var(--size-200);
+
+		@media screen and (min-width: $medium) {
+			gap: var(--size-060) var(--size-600);
+		}
+	}
+
+	&__link {
+		font-family: var(--font-display);
+		font-size: clamp(var(--size-400), 7vw, var(--size-700));
+		line-height: 1;
+		text-decoration: none;
+		text-transform: uppercase;
+
+		&:hover,
+		&--active {
+			color: var(--color-tab-active);
+		}
+	}
+}
+
+// Home page before a view is picked, the tabs sit in the middle of the screen
+.sort-page--intro .sort-tabs {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 60vh;
+}

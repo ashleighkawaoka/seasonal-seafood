@@ -1,0 +1,103 @@
+@use "../components" as *;
+
+.coxcomb {
+	// Each triangle's gradient runs from the center (inner) to its outer edge.
+	// Main chart: yellow to purple. Small similar fish charts: purple to red.
+	--coxcomb-inner: var(--yellow);
+	--coxcomb-outer: var(--purple);
+
+	&--small {
+		--coxcomb-inner: var(--purple);
+		--coxcomb-outer: var(--red);
+	}
+
+	// Holds the SVG and the HTML labels laid over it
+	&__plot {
+		position: relative;
+	}
+
+	&__svg {
+		display: block;
+		width: 100%;
+		height: auto;
+		overflow: visible;
+	}
+
+	// Every triangle: purple in the middle, red that barely fades at its outer edge.
+	// The --mint / --pink / --yellow modifiers only mark which triangles are diagonal partners.
+	&__wedge {
+		fill: var(--coxcomb-fill);
+		transition: opacity 0.2s;
+	}
+
+	&__axis {
+		stroke: var(--black);
+		stroke-width: calc(var(--size-010) / 2);
+		// Line thickness stays the same however big the chart is drawn
+		vector-effect: non-scaling-stroke;
+	}
+
+	&__stop {
+		&--inner {
+			stop-color: var(--coxcomb-inner);
+		}
+
+		&--outer {
+			stop-color: var(--coxcomb-outer);
+			stop-opacity: 0.8;
+		}
+	}
+
+	// Invisible full slices that catch clicks
+	&__hit {
+		fill: transparent;
+	}
+
+	&__label {
+		position: absolute;
+		padding: 0;
+		color: var(--black);
+		font-family: var(--font-display);
+		font-size: var(--size-300);
+		line-height: 1;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.2s;
+	}
+
+	// Desktop with a mouse: clicking a slice shows only it and its diagonal partner (lines stay)
+	@media screen and (min-width: $large) and (hover: hover) {
+		&:not(&--small) &__hit,
+		&:not(&--small) &__label {
+			cursor: pointer;
+		}
+
+		&--active-mint &__wedge:not(&__wedge--mint),
+		&--active-pink &__wedge:not(&__wedge--pink),
+		&--active-yellow &__wedge:not(&__wedge--yellow),
+		&--active-mint &__label:not(&__label--mint),
+		&--active-pink &__label:not(&__label--pink),
+		&--active-yellow &__label:not(&__label--yellow) {
+			opacity: 0;
+		}
+
+		// Lines turn red while a pair is selected
+		&--active-mint &__axis,
+		&--active-pink &__axis,
+		&--active-yellow &__axis {
+			stroke: var(--red);
+		}
+	}
+
+	// Fish name under the small charts, same size as the thickness scale labels
+	&__caption {
+		margin-top: var(--size-080);
+		color: var(--black);
+		font-family: var(--font-display);
+		font-size: var(--size-300);
+		line-height: 1.1;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}

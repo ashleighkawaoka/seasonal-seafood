@@ -1,0 +1,19 @@
+.tag {
+	display: inline-block;
+	padding: var(--size-050) var(--size-080);
+	background: var(--white);
+	color: var(--black);
+	font-family: var(--font-display);
+	font-size: var(--size-200);
+	line-height: 1.1;
+	text-transform: uppercase;
+
+	&--active {
+		background: var(--color-highlight);
+	}
+
+	&--large {
+		padding: var(--size-060) var(--size-200);
+		font-size: var(--size-400);
+	}
+}

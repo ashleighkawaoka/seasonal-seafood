@@ -1,0 +1,41 @@
+// Shared search bar. Set --search-accent on a parent to color the line and placeholder.
+.search-field {
+	display: flex;
+	align-items: center;
+	border-bottom: var(--size-010) solid var(--search-accent, var(--black));
+	background: rgba(255, 255, 255, 0.15);
+
+	&__input {
+		flex: 1;
+		min-width: 0;
+		padding: var(--size-070) var(--size-100);
+		border: 0;
+		background: transparent;
+		font-family: var(--font-display);
+		font-size: var(--size-400);
+		text-transform: uppercase;
+
+		&::placeholder {
+			color: var(--search-accent, var(--black));
+		}
+
+		// The clear button replaces the browser's own
+		&::-webkit-search-cancel-button {
+			appearance: none;
+		}
+	}
+
+	&__clear {
+		display: flex;
+		padding: var(--size-060) var(--size-080);
+	}
+
+	// White line, white placeholder and white typed text on the translucent bar
+	&--white {
+		--search-accent: var(--white);
+	}
+
+	&--white &__input {
+		color: var(--white);
+	}
+}

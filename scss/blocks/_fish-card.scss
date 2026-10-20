@@ -1,0 +1,132 @@
+@use "../components" as *;
+
+.fish-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	color: var(--black);
+	text-decoration: none;
+
+	&__media {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		background: var(--card-gradient);
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&__placeholder {
+		font-size: var(--size-090);
+		text-transform: uppercase;
+		opacity: 0.6;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--size-100);
+		padding-top: var(--size-080);
+	}
+
+	&__name {
+		font-family: var(--font-display);
+		font-size: var(--size-500);
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	&__label {
+		margin-bottom: var(--size-050);
+		font-size: var(--size-100);
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+	}
+
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--size-050);
+	}
+
+	// Tags inside cards run one size bigger than the shared tag style
+	&__tag {
+		font-size: var(--size-300);
+	}
+
+	&__methods {
+		display: grid;
+		gap: var(--size-050);
+	}
+
+	&__method {
+		display: block;
+		padding: var(--size-040) var(--size-080);
+		background: var(--white);
+		box-shadow: 0 var(--size-010) 0 var(--black);
+		color: var(--black);
+		font-family: var(--font-display);
+		font-size: var(--size-300);
+		text-align: center;
+		text-transform: uppercase;
+
+		&--active {
+			background: var(--color-highlight);
+		}
+	}
+
+	// Plain comma-separated text, used for pairings and in-season months
+	&__list {
+		font-family: var(--font-display);
+		font-size: var(--size-300);
+		line-height: 1.15;
+		text-transform: uppercase;
+	}
+
+	&__list--months {
+		color: var(--yellow);
+	}
+
+	// All Fish page: big card colored by habitat
+	&--saltwater {
+		--habitat-color: var(--yellow);
+	}
+
+	&--freshwater {
+		--habitat-color: var(--blue);
+	}
+
+	&--both {
+		--habitat-color: var(--mint);
+	}
+
+	&--full {
+		padding: var(--size-100);
+		background: var(--habitat-color);
+
+		@media screen and (min-width: $medium) {
+			padding: var(--size-200);
+		}
+	}
+
+	&--full &__media {
+		aspect-ratio: 16 / 9;
+		background: var(--all-fish-card-gradient);
+	}
+
+	&--full &__name {
+		font-size: var(--size-700);
+	}
+
+	&--full &__season {
+		--season-base: var(--purple);
+	}
+
+}

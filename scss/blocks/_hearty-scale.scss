@@ -1,0 +1,62 @@
+@use "../components" as *;
+
+.hearty-scale {
+	// Phones: both labels on one row with the full-width line underneath.
+	// Tablet and up: Thin / Lean ——◆—— Thick / Hearty on one row.
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--size-400) var(--size-200);
+	// Room for the numbers that hang below the line
+	padding-bottom: var(--size-600);
+
+	@media screen and (min-width: $medium) {
+		flex-wrap: nowrap;
+	}
+
+	&__end {
+		flex: none;
+		font-family: var(--font-display);
+		font-size: var(--size-300);
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	// The line itself
+	&__track {
+		position: relative;
+		flex: 1 0 100%;
+		order: 1;
+		height: var(--size-010);
+		background: var(--black);
+
+		@media screen and (min-width: $medium) {
+			flex-basis: auto;
+			order: 0;
+		}
+	}
+
+	// Diamond centered on the line at the fish's score
+	&__marker {
+		position: absolute;
+		top: 50%;
+		width: var(--size-200);
+		aspect-ratio: 1;
+		background: var(--black);
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	&__numbers {
+		position: absolute;
+		inset: var(--size-400) 0 auto;
+		list-style: none;
+	}
+
+	&__number {
+		position: absolute;
+		font-size: var(--size-090);
+		line-height: 1;
+		transform: translateX(-50%);
+	}
+}

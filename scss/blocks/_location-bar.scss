@@ -1,0 +1,131 @@
+@use "../components" as *;
+
+.location-bar {
+	$fade: var(--size-300);
+
+	padding-inline: var(--gutter);
+	padding-bottom: $fade;
+	// Solid band that fades into the page color underneath
+	background: linear-gradient(var(--color-band) calc(100% - #{$fade}), var(--color-main));
+
+	&__toggle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--size-100);
+		width: 100%;
+		padding-block: var(--size-070) var(--size-030);
+		font-family: var(--font-display);
+		font-size: var(--size-500);
+		line-height: 1;
+		text-align: left;
+		text-transform: uppercase;
+
+		@media screen and (min-width: $medium) {
+			font-size: var(--size-600);
+		}
+	}
+
+	&__icon {
+		display: flex;
+		transition: transform 0.2s;
+
+		.icon {
+			width: var(--size-300);
+			height: var(--size-300);
+		}
+	}
+
+	&--open &__name {
+		color: var(--color-band-active);
+	}
+
+	&--open &__icon {
+		transform: rotate(180deg);
+	}
+
+	&__panel {
+		display: grid;
+		gap: var(--size-300);
+		padding: var(--size-100) 0 var(--size-300) var(--size-200);
+
+		@media screen and (min-width: $medium) {
+			padding-left: var(--size-500);
+		}
+	}
+
+	&__presets {
+		font-family: var(--font-display);
+		font-size: var(--size-400);
+		line-height: 1.15;
+		text-transform: uppercase;
+
+		@media screen and (min-width: $medium) {
+			font-size: var(--size-500);
+		}
+	}
+
+	&__preset {
+		text-align: left;
+		text-transform: inherit;
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-band-active);
+		}
+	}
+
+	&__search {
+		--search-accent: var(--color-band-active);
+
+		max-width: calc(var(--size-700) * 6);
+	}
+
+	&__heading {
+		display: block;
+		margin-bottom: var(--size-070);
+		font-family: var(--font-sans);
+		font-size: var(--size-100);
+		font-weight: 500;
+		text-transform: uppercase;
+	}
+
+	&__results {
+		margin-top: var(--size-060);
+		background: var(--white);
+	}
+
+	&__result {
+		display: block;
+		width: 100%;
+		padding: var(--size-060) var(--size-080);
+		text-align: left;
+
+		&:hover,
+		&:focus-visible {
+			background: var(--black);
+			color: var(--white);
+		}
+	}
+
+	&__status,
+	&__message {
+		margin-top: var(--size-050);
+		font-size: var(--size-090);
+	}
+
+	&__detect {
+		justify-self: start;
+		padding: var(--size-070) var(--size-090);
+		background: var(--white);
+		color: var(--black);
+		font-family: var(--font-sans);
+		font-size: var(--size-200);
+		font-weight: 400;
+
+		&:disabled {
+			opacity: 0.6;
+			cursor: wait;
+		}
+	}
+}

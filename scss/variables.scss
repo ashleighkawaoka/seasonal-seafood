@@ -6,51 +6,48 @@
 
 \*----------------------------------------------*/
 
-@use "./_components.scss" as *;
+@use "components" as c;
 
 /*
  *
- * ANCHOR Responsive Text Sizes 
+ * ANCHOR Responsive Text Sizes
 ------------------------------------------------*/
 :root {
-	/* Minor Third (factor: 1.2)*/
-	--size-010: .193rem;
-	--size-020: .232rem;
-	--size-030: .279rem;
-	--size-040: .334rem;
-	--size-050: .4rem;
-	--size-060: .482rem;
-	--size-070: .579rem;
-	--size-080: .694rem;
-	--size-090: .833rem;
+	/* Major Third (factor: 1.25)*/
+	--size-010: .134rem;
+	--size-020: .168rem;
+	--size-030: .21rem;
+	--size-040: .262rem;
+	--size-050: .328rem;
+	--size-060: .41rem;
+	--size-070: .512rem;
+	--size-080: .64rem;
+	--size-090: .8rem;
 	--size-100: 1rem;		/* <-- Default */
-	--size-200: 1.2rem;
-	--size-300: 1.44rem;
-	--size-400: 1.728rem;
-	--size-500: 2.074rem;
-	--size-600: 2.488rem;
-	--size-700: 2.986rem;	
-	--size-800: 3.583rem;
-	--size-900: 4.299rem;
-	--size-1000: 5.159rem;
-	
-	@media screen and (min-width: $x-small) {
-		font-size: 1.05rem;
-	}
-	@media screen and (min-width: $small) {
+	--size-200: 1.25rem;
+	--size-300: 1.563rem;
+	--size-400: 1.953rem;
+	--size-500: 2.441rem;
+	--size-600: 3.052rem;
+	--size-700: 3.815rem;
+
+	@media screen and (min-width: c.$x-small) {
 		font-size: 1.1rem;
 	}
-	@media screen and (min-width: $medium) {
-		font-size: 1.15rem;
-	}
-	@media screen and (min-width: $large) {
+	@media screen and (min-width: c.$small) {
 		font-size: 1.2rem;
 	}
-	@media screen and (min-width: $x-large) {
-		font-size: 1.25rem;
-	}	
-	@media screen and (min-width: $xx-large) {
+	@media screen and (min-width: c.$medium) {
 		font-size: 1.3rem;
+	}
+	@media screen and (min-width: c.$large) {
+		font-size: 1.4rem;
+	}
+	@media screen and (min-width: c.$x-large) {
+		font-size: 1.5rem;
+	}
+	@media screen and (min-width: c.$xx-large) {
+		font-size: 1.6rem;
 	}
 }
 
@@ -60,48 +57,65 @@
  * ANCHOR Fonts
 ------------------------------------------------*/
 :root {
-	--font-serif: ;
-	--font-sans: ;
-	--font-display: ;
+	/* TT Modernoir loads from Typekit (nuxt.config.ts), Platform from public/fonts (_fonts.scss) */
+	--font-display: "tt-modernoir", sans-serif;
+	--font-sans: "Platform", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
 /*
  *
- * ANCHOR Colors 
+ * ANCHOR Colors
 ------------------------------------------------*/
 :root {
-	--black: #050505;
+	--black: #000000;
 	--white: #FFFFFF;
+	--red: #FF0000;
+	--orange: #FF3600;
+	--yellow: #FFE600;
+	--mint: #00DBB1;
+	--blue: #0078D8;
+	--purple: #AE9AFF;
+	--pink: #FF4298;
+
+	/* Seasonality diamonds: in season is this color, available and out of season are lighter versions of it */
+	--season-base: var(--yellow);
 }
 
 
 /*
  *
- * ANCHOR Margins & Padding
+ * ANCHOR Fish Card Gradient Colors
 ------------------------------------------------*/
 :root {
-	--margin-wrapper-outer: var(--size-070);
-	// --box-padding: var(--size-070);
-	// --margin-section-vertical: var(--size-600);
-	// --column-gap: var(--size-500);
+	--taste-card-gradient: linear-gradient(var(--pink) 25%, var(--red) 100%);
+	--good-for-card-gradient: linear-gradient(var(--blue) 25%, var(--mint) 100%);
+	--seasonality-card-gradient: linear-gradient(var(--orange) 25%, var(--purple) 100%);
+	--all-fish-card-gradient: linear-gradient(var(--pink) 25%, var(--red) 100%);
+}
 
-	@media screen and (min-width: $xx-small) {
-		--margin-wrapper-outer: var(--size-100);
-	}
-	@media screen and (min-width: $medium) {
-		--margin-wrapper-outer: var(--size-300);
-		// --box-padding: var(--size-090);
-		// --margin-section-vertical: var(--size-700);
-	}
-	@media screen and (min-width: $large) {
-		--margin-wrapper-outer: var(--size-500);
-		// --box-padding: var(--size-100);
-		// --margin-section-vertical: var(--size-800);
-	}
 
+/*
+ *
+ * ANCHOR Responsive Margins
+------------------------------------------------*/
+:root {
+	--margin-outside: var(--size-100);
 	--margin-vertical-large: var(--size-600);
 	--margin-vertical-small: var(--size-100);
+
+	@media screen and (min-width: c.$medium) {
+		--margin-outside: var(--size-400);
+	}
+	@media screen and (min-width: c.$large) {
+		--margin-outside: var(--size-600);
+	}
+	@media screen and (min-width: c.$x-large) {
+		--margin-outside: var(--size-700);
+	}
+
+	/* Side padding that also centers content once the screen is wider than the max-width */
+	--gutter: max(var(--margin-outside), calc((100% - var(--wrapper-max-width)) / 2));
 }
 
 
@@ -110,5 +124,5 @@
  * ANCHOR Max-Widths
 ------------------------------------------------*/
 :root {
-	--wrapper-max-width: 80rem;
+	--wrapper-max-width: 1600px;
 }

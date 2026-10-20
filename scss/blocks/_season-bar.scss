@@ -1,0 +1,75 @@
+@use "../components" as *;
+
+.season-bar {
+	// Side length of each diamond before it's rotated. Its diagonal equals one month's
+	// column (100cqi / 12), so neighbouring diamonds touch point to point.
+	--diamond: calc(100cqi / 12 / 1.4142);
+
+	// Every status is the same base color at a different strength.
+	// --season-base comes from the page (yellow by default, purple on All Fish cards).
+	--season-in-season: var(--season-base);
+	--season-available: color-mix(in srgb, var(--season-base) 55%, transparent);
+	--season-out-of-season: color-mix(in srgb, var(--season-base) 25%, transparent);
+
+	container: season-bar / inline-size;
+
+	&__months {
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+	}
+
+	&__month {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--size-040);
+
+		&--in-season {
+			--season-color: var(--season-in-season);
+		}
+
+		&--available {
+			--season-color: var(--season-available);
+		}
+
+		&--out-of-season {
+			--season-color: var(--season-out-of-season);
+		}
+	}
+
+	&__diamond {
+		width: var(--diamond);
+		aspect-ratio: 1;
+		// Keeps the rotated corners inside the row
+		margin-block: calc(var(--diamond) * 0.207);
+		background: var(--season-color);
+		transform: rotate(45deg);
+
+		// Frozen months have a star cut out, showing whatever is behind the bar
+		&--frozen {
+			@include knockout-star;
+		}
+	}
+
+	&__label {
+		font-size: var(--size-200);
+		font-weight: 400;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	// Single letters when the bar is narrow, short month names once there's room
+	&__label-long {
+		display: none;
+	}
+
+	@container season-bar (min-width: 34rem) {
+		&__label-short {
+			display: none;
+		}
+
+		&__label-long {
+			display: inline;
+		}
+	}
+}

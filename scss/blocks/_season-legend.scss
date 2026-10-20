@@ -1,0 +1,47 @@
+@use "../components" as *;
+
+.season-legend {
+	// Same strengths as the season bar
+	--season-in-season: var(--season-base);
+	--season-available: color-mix(in srgb, var(--season-base) 55%, transparent);
+	--season-out-of-season: color-mix(in srgb, var(--season-base) 25%, transparent);
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--size-050) var(--size-100);
+	font-size: var(--size-090);
+	font-family: var(--font-sans);
+	font-weight: 400;
+	text-transform: lowercase;
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: var(--size-060);
+
+		&--in-season,
+		&--frozen {
+			--season-color: var(--season-in-season);
+		}
+
+		&--available {
+			--season-color: var(--season-available);
+		}
+
+		&--out-of-season {
+			--season-color: var(--season-out-of-season);
+		}
+	}
+
+	&__swatch {
+		width: var(--size-100);
+		aspect-ratio: 1;
+		background: var(--season-color);
+		transform: rotate(45deg);
+
+		&--frozen {
+			@include knockout-star;
+		}
+	}
+}

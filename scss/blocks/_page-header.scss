@@ -1,0 +1,21 @@
+@use "../components" as *;
+
+.page-header {
+	padding: var(--size-200) var(--gutter) var(--size-400);
+
+	// When a key sits under the title, the space below it matches the space above it
+	&--with-key {
+		padding-bottom: var(--size-200);
+	}
+
+	&__title {
+		font-family: var(--font-display);
+		font-size: var(--size-600);
+		line-height: 1;
+		text-transform: uppercase;
+
+		@media screen and (min-width: $medium) {
+			font-size: var(--size-700);
+		}
+	}
+}

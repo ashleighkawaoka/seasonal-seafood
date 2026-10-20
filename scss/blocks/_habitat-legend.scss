@@ -1,0 +1,37 @@
+.habitat-legend {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--size-050) var(--size-100);
+	margin-top: var(--size-200);
+	font-size: var(--size-090);
+	font-family: var(--font-sans);
+	font-weight: 400;
+	text-transform: lowercase;
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: var(--size-060);
+
+		&--saltwater {
+			--habitat-color: var(--yellow);
+		}
+
+		&--freshwater {
+			--habitat-color: var(--blue);
+		}
+
+		&--both {
+			--habitat-color: var(--mint);
+		}
+	}
+
+	// Same visual size as the season key's diamonds (a --size-100 square turned 45°)
+	&__swatch {
+		width: calc(var(--size-100) * 1.4142);
+		height: calc(var(--size-100) * 1.4142);
+		border-radius: 50%;
+		background: var(--habitat-color);
+	}
+}

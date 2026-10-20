@@ -1,0 +1,58 @@
+/*----------------------------------------------*\
+    BASE
+	====
+
+	@package ashleighkawaoka
+
+\*----------------------------------------------*/
+
+body {
+	background: var(--red);
+	color: var(--black);
+	font-family: var(--font-sans);
+	line-height: 1.3;
+	-webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+	font: inherit;
+	color: inherit;
+}
+
+:focus,
+:focus-visible {
+	outline: none;
+}
+
+.icon {
+	flex: none;
+	width: var(--size-200);
+	height: var(--size-200);
+
+	&__bg {
+		fill: var(--white);
+	}
+
+	// Flat ends, same thin width as the nav underline, whatever size the icon is drawn at
+	&__stroke {
+		fill: none;
+		stroke: var(--black);
+		stroke-width: calc(var(--size-010) / 2);
+		stroke-linecap: butt;
+		stroke-linejoin: miter;
+		vector-effect: non-scaling-stroke;
+	}
+
+	// Outlined version used on colored backgrounds
+	&--back &__bg {
+		fill: none;
+		stroke: currentColor;
+		stroke-width: calc(var(--size-010) / 2);
+		vector-effect: non-scaling-stroke;
+	}
+
+	&--back &__stroke {
+		stroke: currentColor;
+	}
+}

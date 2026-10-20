@@ -1,0 +1,50 @@
+// Color themes. Every block reads these variables instead of fixed colors,
+// so switching the modifier on .site recolors the whole page.
+.site {
+	--color-nav: var(--red);
+	--color-nav-text: var(--white);
+	--color-brand: var(--white);
+	--color-band: var(--yellow);
+	--color-band-active: var(--red);
+	--color-main: var(--red);
+	--color-panel: var(--pink);
+	--color-box: color-mix(in srgb, var(--red) 35%, var(--pink));
+	--color-highlight: var(--yellow);
+	--color-tab-active: var(--yellow);
+	--card-gradient: var(--all-fish-card-gradient);
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	min-height: 100dvh;
+	background: var(--color-main);
+
+	&--taste {
+		--card-gradient: var(--taste-card-gradient);
+	}
+
+	&--good-for {
+		--color-nav: var(--blue);
+		--color-band: var(--mint);
+		--color-band-active: var(--blue);
+		--color-main: var(--blue);
+		--color-panel: var(--mint);
+		--color-box: color-mix(in srgb, var(--blue) 25%, var(--mint));
+		--color-tab-active: var(--mint);
+		--card-gradient: var(--good-for-card-gradient);
+	}
+
+	// Not in the mockups yet, colors follow the seasonality card gradient
+	&--seasonality {
+		--color-nav: var(--purple);
+		--color-band-active: var(--purple);
+		--color-main: var(--purple);
+		--color-panel: var(--orange);
+		--color-box: color-mix(in srgb, var(--purple) 35%, var(--orange));
+		--card-gradient: var(--seasonality-card-gradient);
+	}
+
+	&__main {
+		flex: 1;
+	}
+}

@@ -1,0 +1,83 @@
+@use "../components" as *;
+
+.filter-panel {
+	padding-bottom: var(--size-500);
+
+	&__body {
+		display: grid;
+		gap: var(--size-200);
+		padding-inline: var(--gutter);
+	}
+
+	&__options {
+		display: grid;
+		gap: var(--size-080);
+
+		// Each button is only as wide as its word and wraps onto the next line when it runs out of room
+		&--row {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		&--stack {
+			justify-self: center;
+			width: 100%;
+			max-width: calc(var(--size-700) * 7);
+		}
+	}
+
+	&__options--row &__item {
+		flex: none;
+	}
+
+	// Good For's stacked list keeps full-width buttons
+	&__options--stack &__option {
+		width: 100%;
+	}
+
+	&__option {
+		padding: var(--size-070) var(--size-400);
+		background: var(--white);
+		box-shadow: 0 var(--size-010) 0 var(--black);
+		font-family: var(--font-display);
+		font-size: var(--size-400);
+		line-height: 1.1;
+		text-transform: uppercase;
+
+		&:hover,
+		&--active {
+			background: var(--color-highlight);
+		}
+	}
+
+	&__search {
+		--search-accent: var(--color-panel);
+
+		justify-self: center;
+		width: 100%;
+		max-width: calc(var(--size-700) * 7);
+	}
+
+	&__empty {
+		text-align: center;
+	}
+
+	&__more {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-self: center;
+		gap: var(--size-040);
+		color: var(--white);
+		font-size: var(--size-090);
+
+		.icon {
+			transition: transform 0.2s;
+		}
+
+		&--open .icon {
+			transform: rotate(180deg);
+		}
+	}
+}

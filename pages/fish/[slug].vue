@@ -1,122 +1,80 @@
 <script setup>
 const route = useRoute()
 
-const query = `*[_type == "seafood" && slug.current == $slug][0]{
-  _id,
-  name,
-  alternateNames,
-  "imageUrl": image.asset->url,
-  "imageAlt": image.alt,
-  peakMonths,
-  limitedMonths,
-  frozenMonths,
-  buyGuidance,
-  avoidGuidance,
-  flavorRating,
-  oilRating,
-  textureRating,
-  culinaryProfileDescription,
-  dishes,
-  "ingredients": ingredients[]->{ name, category },
-  "cookingMethods": cookingMethods[]->name,
-  "cuts": cuts[]->{ name, description },
-  "catchingMethods": catchingMethods[]->{ name, description },
-  "waters": waters[]->{ name, latitude, longitude }
-}`
-
-const { data: fish } = await useSanityQuery(query, { slug: route.params.slug })
+const { data: fish } = await useSanityQuery(FISH_DETAIL_QUERY, { slug: route.params.slug })
 
 if (!fish.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Fish not found' })
+  throw createError({ statusCode: 404, statusMessage: 'Fish not found', fatal: true })
 }
+
+useHead({ title: fish.value.name })
+
+const profiles = computed(() =>
+  TASTE_AXES.map((axis) => ({ ...axis, score: fish.value[axis.key] ?? 0 })),
+)
+const methods = computed(() => (fish.value.cookingMethods ?? []).map(methodTitle))
 </script>
 
 <template>
   <article class="fish-detail">
-    <NuxtLink to="/" class="fish-detail__back-link">← Back to all seafood</NuxtLink>
-    <h1 class="fish-detail__name">{{ fish.name }}</h1>
-    <p v-if="fish.alternateNames" class="fish-detail__alt-names">{{ fish.alternateNames }}</p>
-
-    <img
-      v-if="fish.imageUrl"
-      :src="`${fish.imageUrl}?w=1200&auto=format`"
-      :alt="fish.imageAlt || fish.name"
-      class="fish-detail__image"
-    />
-
-    <SeasonalityBar :item="fish" :labeled="true" />
-    <SeasonalityKey :show-star="false" />
-
-    <section v-if="fish.buyGuidance?.length || fish.avoidGuidance?.length" class="fish-detail__buying-guide">
-      <h2>Buying Guide</h2>
-      <div class="fish-detail__buy">
-        <h3>Buy</h3>
-        <ul v-if="fish.buyGuidance?.length">
-          <li v-for="(item, i) in fish.buyGuidance" :key="i">{{ item }}</li>
-        </ul>
+    <header class="fish-detail__hero">
+      <div class="fish-detail__media">
+        <img
+          v-if="fish.imageUrl"
+          class="fish-detail__image"
+          :src="`${fish.imageUrl}?w=1000&auto=format`"
+          :alt="fish.imageAlt || ''"
+        />
+        <span v-else class="fish-detail__placeholder" aria-hidden="true">Image coming soon</span>
       </div>
-      <div class="fish-detail__avoid">
-        <h3>Avoid</h3>
-        <ul v-if="fish.avoidGuidance?.length">
-          <li v-for="(item, i) in fish.avoidGuidance" :key="i">{{ item }}</li>
-        </ul>
-        <p v-else>There are no red ratings for {{ fish.name }}.</p>
+      <h1 class="fish-detail__name">{{ fish.name }}</h1>
+
+      <div class="fish-detail__season">
+        <SeasonBar class="fish-detail__season-bar" :fish="fish" labels />
+        <SeasonLegend />
       </div>
+    </header>
+
+    <section class="fish-detail__section fish-detail__section--chart" aria-labelledby="chart-heading">
+      <h2 id="chart-heading" class="screen-reader-text">Taste scores</h2>
+      <CoxcombChart class="fish-detail__chart" :fish="fish" />
     </section>
 
-    <section v-if="fish.flavorRating" class="fish-detail__culinary-profile">
-      <h2>Culinary Profile</h2>
-      <p>Flavor: {{ fish.flavorRating }}/5</p>
-      <p>Oil: {{ fish.oilRating }}/5</p>
-      <p>Texture: {{ fish.textureRating }}/5</p>
-      <p v-if="fish.culinaryProfileDescription">{{ fish.culinaryProfileDescription }}</p>
-    </section>
-
-    <section v-if="fish.ingredients?.length" class="fish-detail__pairs-with">
-      <h2>Pairs well with</h2>
-      <ul>
-        <li v-for="ingredient in fish.ingredients" :key="ingredient.name">{{ ingredient.name }}</li>
+    <section class="fish-detail__section fish-detail__section--similar" aria-labelledby="similar-heading">
+      <h2 id="similar-heading" class="fish-detail__heading fish-detail__heading--center">Similar to</h2>
+      <ul v-if="fish.similarFish?.length" class="fish-detail__similar-list">
+        <li v-for="similar in fish.similarFish" :key="similar._id" class="fish-detail__similar-item">
+          <NuxtLink :to="`/fish/${similar.slug}`" class="fish-detail__similar-link">
+            <CoxcombChart :fish="similar" :labels="false">{{ similar.name }}</CoxcombChart>
+          </NuxtLink>
+        </li>
       </ul>
+      <p v-else class="fish-detail__text">No other fish on the site taste quite like this one.</p>
     </section>
 
-    <section v-if="fish.cookingMethods?.length" class="fish-detail__good-for">
-      <h2>Good for</h2>
-      <ul>
-        <li v-for="method in fish.cookingMethods" :key="method">{{ method }}</li>
-      </ul>
-    </section>
-
-    <section v-if="fish.dishes?.length" class="fish-detail__dishes">
-      <h2>Famous Dishes</h2>
-      <ul>
-        <li v-for="dish in fish.dishes" :key="dish.name">
-          <a v-if="dish.link" :href="dish.link" target="_blank" rel="noopener">{{ dish.name }}</a>
-          <span v-else>{{ dish.name }}</span>
+    <section class="fish-detail__section" aria-labelledby="profiles-heading">
+      <h2 id="profiles-heading" class="fish-detail__heading">Taste profiles</h2>
+      <ul class="fish-detail__profiles">
+        <li v-for="profile in profiles" :key="profile.key" class="fish-detail__profile">
+          <h3 class="fish-detail__profile-title">{{ profile.title }}</h3>
+          <p class="fish-detail__profile-score">{{ profile.score }} / 10</p>
+          <p class="fish-detail__profile-text">{{ profile.description }}</p>
         </li>
       </ul>
     </section>
 
-    <section v-if="fish.cuts?.length" class="fish-detail__cuts">
-      <h2>What cut to catch</h2>
-      <dl>
-        <template v-for="cut in fish.cuts" :key="cut.name">
-          <dt>{{ cut.name }}</dt>
-          <dd>{{ cut.description }}</dd>
-        </template>
-      </dl>
-    </section>
+    <section class="fish-detail__section" aria-labelledby="methods-heading">
+      <h2 id="methods-heading" class="fish-detail__heading">Good for</h2>
+      <HeartyScale class="fish-detail__hearty" :fish="fish" />
+      <ul v-if="methods.length" class="fish-detail__methods">
+        <li v-for="method in methods" :key="method" class="fish-detail__method">{{ method }}</li>
+      </ul>
+      <p v-else class="fish-detail__text">Best used as a flavoring rather than cooked on its own.</p>
 
-    <section v-if="fish.catchingMethods?.length || fish.waters?.length" class="fish-detail__sourcing">
-      <h2>Catching Method</h2>
-      <p v-if="fish.waters?.length">
-        <strong>Sourced from:</strong> {{ fish.waters.map((w) => w.name).join(', ') }}
-      </p>
-      <dl v-if="fish.catchingMethods?.length">
-        <template v-for="method in fish.catchingMethods" :key="method.name">
-          <dt>{{ method.name }}</dt>
-          <dd>{{ method.description }}</dd>
-        </template>
-      </dl>
+      <template v-if="fish.pairings?.length">
+        <h3 class="fish-detail__subheading">Pairs well with</h3>
+        <p class="fish-detail__pairings">{{ fish.pairings.join(', ') }}</p>
+      </template>
     </section>
   </article>
 </template>

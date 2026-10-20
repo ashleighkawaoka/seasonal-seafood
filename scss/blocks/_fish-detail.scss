@@ -1,0 +1,186 @@
+@use "../components" as *;
+
+.fish-detail {
+	padding-bottom: var(--size-700);
+
+	&__hero {
+		display: grid;
+		justify-items: center;
+		gap: var(--size-200);
+		padding: var(--size-200) var(--gutter) var(--size-400);
+		text-align: center;
+	}
+
+	&__media {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: min(100%, calc(var(--size-700) * 7));
+		aspect-ratio: 16 / 9;
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&__placeholder {
+		font-size: var(--size-090);
+		text-transform: uppercase;
+		opacity: 0.6;
+	}
+
+	&__name {
+		font-family: var(--font-display);
+		font-size: var(--size-600);
+		line-height: 1;
+		text-transform: uppercase;
+
+		@media screen and (min-width: $medium) {
+			font-size: var(--size-700);
+		}
+	}
+
+	&__season {
+		display: grid;
+		justify-items: center;
+		gap: var(--size-400);
+		width: 100%;
+		margin-top: var(--size-200);
+	}
+
+	// Runs the full width between the page margins
+	&__season-bar {
+		width: 100%;
+	}
+
+	&__section {
+		padding: var(--size-500) var(--gutter);
+
+		&--chart {
+			display: grid;
+			justify-items: center;
+		}
+
+		&--similar {
+			padding-bottom: var(--size-700);
+			background: linear-gradient(var(--yellow) calc(100% - var(--size-500)), var(--color-main));
+		}
+	}
+
+	&__chart {
+		width: min(100%, calc(var(--size-700) * 11));
+	}
+
+	// Section labels, same as the labels on the fish cards
+	&__heading {
+		margin-bottom: var(--size-200);
+		font-family: var(--font-sans);
+		font-size: var(--size-100);
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+
+		&--center {
+			text-align: center;
+		}
+	}
+
+	&__subheading {
+		margin: var(--size-300) 0 var(--size-080);
+		font-family: var(--font-sans);
+		font-size: var(--size-100);
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+	}
+
+	// Centered row: three per line on phones, five on wider screens
+	&__similar-list {
+		--similar-gap: var(--size-200);
+		--similar-columns: 3;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--similar-gap);
+
+		@media screen and (min-width: $medium) {
+			--similar-columns: 5;
+		}
+	}
+
+	&__similar-item {
+		flex: 0 0 calc((100% - (var(--similar-columns) - 1) * var(--similar-gap)) / var(--similar-columns));
+	}
+
+	&__similar-link {
+		display: block;
+		text-decoration: none;
+	}
+
+	&__profiles {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--size-200) var(--size-100);
+
+		@media screen and (min-width: $medium) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	&__profile-title {
+		padding: var(--size-030) var(--size-070);
+		background: var(--yellow);
+		font-family: var(--font-display);
+		font-size: var(--size-400);
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	&__profile-score {
+		margin-block: var(--size-060);
+		color: var(--yellow);
+		font-family: var(--font-display);
+		font-size: var(--size-200);
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	&__profile-text {
+		padding: var(--size-200);
+		background: color-mix(in srgb, var(--yellow) 50%, transparent);
+		color: var(--yellow);
+		font-family: var(--font-sans);
+		font-size: var(--size-100);
+		line-height: 1.35;
+	}
+
+	// Thickness scale between the Good for heading and the methods
+	&__hearty {
+		margin-bottom: var(--size-400);
+	}
+
+	&__methods {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--size-060);
+	}
+
+	&__method {
+		padding: var(--size-060) var(--size-200);
+		background: var(--white);
+		box-shadow: 0 var(--size-010) 0 var(--black);
+		font-family: var(--font-display);
+		font-size: var(--size-400);
+		text-transform: uppercase;
+	}
+
+	&__pairings {
+		font-family: var(--font-display);
+		font-size: var(--size-400);
+		line-height: 1.15;
+		text-transform: uppercase;
+	}
+}

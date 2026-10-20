@@ -1,27 +1,28 @@
 <script setup>
 const { init } = useUserLocation()
 onMounted(init)
+
+const route = useRoute()
+
+// Each sort view has its own color theme, every other page uses the default red / yellow
+const theme = computed(() => {
+  if (route.path !== '/') return 'default'
+  return SORT_VIEWS.some((view) => view.key === route.query.view) ? route.query.view : 'default'
+})
+
+useHead({
+  titleTemplate: (title) => (title ? `${title} | ${SITE_NAME}` : SITE_NAME),
+  htmlAttrs: { lang: 'en' },
+})
 </script>
 
 <template>
-  <header class="site-header">
-    <UserLocation />
-    <nav class="site-nav">
-      <ul class="site-nav__list">
-        <li class="site-nav__item">
-          <NuxtLink to="/" class="site-nav__link">Seasonality</NuxtLink>
-        </li>
-        <li class="site-nav__item">
-          <NuxtLink to="/fish-buying-guide" class="site-nav__link">Fish Buying Guide</NuxtLink>
-        </li>
-        <li class="site-nav__item">
-          <NuxtLink to="/seafood-markets" class="site-nav__link">Seafood Markets</NuxtLink>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="site-main">
-    <NuxtPage />
-  </main>
+  <div class="site" :class="`site--${theme}`">
+    <a href="#main" class="screen-reader-text">Skip to content</a>
+    <SiteHeader />
+    <LocationBar />
+    <main id="main" class="site__main">
+      <NuxtPage />
+    </main>
+  </div>
 </template>
