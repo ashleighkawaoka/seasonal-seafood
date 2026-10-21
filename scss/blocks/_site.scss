@@ -34,13 +34,15 @@
 		--card-gradient: var(--good-for-card-gradient);
 	}
 
-	// Not in the mockups yet, mint background
+	// Not in the mockups yet, purple background with a red band and active tab
 	&--seasonality {
-		--color-nav: var(--mint);
-		--color-band-active: var(--mint);
-		--color-main: var(--mint);
+		--color-nav: var(--pink);
+		--color-band: var(--red);
+		--color-tab-active: var(--yellow);
+		--color-band-active: var(--pink);
+		--color-main: var(--pink);
 		--color-panel: var(--orange);
-		--color-box: color-mix(in srgb, var(--mint) 35%, var(--orange));
+		--color-box: color-mix(in srgb, var(--pink) 35%, var(--orange));
 		--card-gradient: var(--seasonality-card-gradient);
 	}
 

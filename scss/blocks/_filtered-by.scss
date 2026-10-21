@@ -51,6 +51,11 @@
 		text-transform: uppercase;
 	}
 
+	// Taste's filter buttons have no line underneath, so its chips don't either
+	.sort-view--taste &__tag {
+		box-shadow: none;
+	}
+
 	&__remove {
 		display: flex;
 

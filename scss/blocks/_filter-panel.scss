@@ -31,6 +31,11 @@
 		flex: none;
 	}
 
+	// Taste's buttons are plain white boxes, no line underneath
+	&__options--row &__option {
+		box-shadow: none;
+	}
+
 	// Good For's stacked list keeps full-width buttons
 	&__options--stack &__option {
 		width: 100%;

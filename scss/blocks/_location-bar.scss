@@ -128,10 +128,12 @@
 		padding: var(--size-070) var(--size-090);
 		background: var(--white);
 		color: var(--black);
-		font-family: var(--font-sans);
-		--tracking: var(--herbus-tracking);
-		font-size: var(--size-100);
+		font-family: var(--font-modernoir);
+		--tracking: normal;
+		font-size: var(--size-300);
 		font-weight: 400;
+		line-height: 1;
+		text-transform: uppercase;
 
 		&:disabled {
 			opacity: 0.6;
