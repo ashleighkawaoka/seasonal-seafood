@@ -34,14 +34,19 @@
 		--card-gradient: var(--good-for-card-gradient);
 	}
 
-	// Not in the mockups yet, colors follow the seasonality card gradient
+	// Not in the mockups yet, mint background
 	&--seasonality {
-		--color-nav: var(--purple);
-		--color-band-active: var(--purple);
-		--color-main: var(--purple);
+		--color-nav: var(--mint);
+		--color-band-active: var(--mint);
+		--color-main: var(--mint);
 		--color-panel: var(--orange);
-		--color-box: color-mix(in srgb, var(--purple) 35%, var(--orange));
+		--color-box: color-mix(in srgb, var(--mint) 35%, var(--orange));
 		--card-gradient: var(--seasonality-card-gradient);
+	}
+
+	&--markets {
+		--color-nav: var(--pink);
+		--color-main: var(--pink);
 	}
 
 	&__main {

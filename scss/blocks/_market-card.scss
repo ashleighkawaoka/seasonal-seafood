@@ -1,10 +1,11 @@
 .market-card {
-	background: var(--orange);
+	// See-through red, so the pink page tints it
+	background: color-mix(in srgb, var(--red) 25%, transparent);
 
-	// Area band: pink fading into the card's orange
+	// Area band: red fading into the card
 	&__area {
 		padding: var(--size-100) var(--size-300) var(--size-300);
-		background: linear-gradient(var(--pink) 60%, var(--orange));
+		background: linear-gradient(var(--red) 60%, transparent);
 		font-family: var(--font-sans);
 		--tracking: var(--herbus-tracking);
 		font-size: var(--size-100);

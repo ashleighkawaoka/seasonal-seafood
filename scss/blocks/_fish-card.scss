@@ -115,8 +115,22 @@
 		text-transform: uppercase;
 	}
 
-	&__list--months {
+	// In-season months, each in a yellow box like the method boxes
+	&__months {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--size-050);
+	}
+
+	&__month {
+		padding: var(--size-050) var(--size-080);
+		background: var(--yellow);
 		color: var(--black);
+		font-family: var(--font-modernoir);
+		--tracking: normal;
+		font-size: var(--size-300);
+		line-height: 1;
+		text-transform: uppercase;
 	}
 
 	// All Fish page: big card colored by habitat

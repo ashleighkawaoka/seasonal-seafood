@@ -22,7 +22,7 @@ const tasteProfile = computed(() => tasteTags(props.fish))
 
 const inSeasonMonths = computed(() => {
   const months = MONTHS.filter((_, i) => monthStatus(props.fish, i) === 'in-season')
-  return months.length === 12 ? 'Year-round' : months.map((month) => month.short).join(', ')
+  return months.length === 12 ? ['Year-round'] : months.map((month) => month.short)
 })
 
 // Selected methods float to the top of the list
@@ -55,9 +55,11 @@ const methods = computed(() =>
 
       <SeasonBar v-if="shows.season" class="fish-card__season" :fish="fish" />
 
-      <div v-if="shows.inSeason && inSeasonMonths" class="fish-card__group">
+      <div v-if="shows.inSeason && inSeasonMonths.length" class="fish-card__group">
         <p class="fish-card__label">In season</p>
-        <p class="fish-card__list fish-card__list--months">{{ inSeasonMonths }}</p>
+        <ul class="fish-card__months">
+          <li v-for="month in inSeasonMonths" :key="month" class="fish-card__month">{{ month }}</li>
+        </ul>
       </div>
 
       <div v-if="shows.taste && tasteProfile.length" class="fish-card__group">
