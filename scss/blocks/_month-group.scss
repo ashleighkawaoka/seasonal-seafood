@@ -12,14 +12,16 @@
 	}
 
 	&__title {
-		font-family: var(--font-sans);
+		font-family: var(--font-herbus);
+		--tracking: var(--herbus-tracking);
 		font-size: var(--size-300);
-		font-weight: 400;
+		font-weight: 500;
 		line-height: 1;
 	}
 
 	&__count {
 		font-family: var(--font-sans);
+		--tracking: var(--herbus-tracking);
 		font-size: var(--size-090);
 		font-weight: 400;
 	}

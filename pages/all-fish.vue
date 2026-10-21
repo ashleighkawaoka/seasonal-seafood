@@ -14,7 +14,7 @@ useHead({ title: 'All fish' })
 
 <template>
   <div class="all-fish">
-    <header class="page-header page-header--with-key">
+    <header class="page-header">
       <h1 class="page-header__title">All fish</h1>
       <div class="all-fish__search">
         <label class="screen-reader-text" for="fish-search">Search for a fish</label>

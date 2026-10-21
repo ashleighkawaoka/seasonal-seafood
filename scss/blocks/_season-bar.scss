@@ -53,25 +53,17 @@
 
 	&__label {
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
-		font-size: var(--size-400);
+		// One size smaller on phones so the month names don't run into each other
+		font-size: var(--size-300);
 		font-weight: 400;
 		line-height: 1;
 		text-transform: uppercase;
-	}
 
-	// Single letters when the bar is narrow, short month names once there's room
-	&__label-long {
-		display: none;
-	}
-
-	@container season-bar (min-width: 34rem) {
-		&__label-short {
-			display: none;
-		}
-
-		&__label-long {
-			display: inline;
+		@media screen and (min-width: $medium) {
+			font-size: var(--size-400);
 		}
 	}
+
 }

@@ -3,13 +3,9 @@
 .page-header {
 	padding: var(--size-200) var(--gutter) var(--size-400);
 
-	// Page header with a key at the bottom (All Fish)
-	&--with-key {
-		padding-bottom: var(--size-400);
-	}
-
 	&__title {
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
 		font-size: var(--size-900);
 		line-height: var(--display-line-height);
@@ -18,6 +14,12 @@
 
 		@media screen and (min-width: $medium) {
 			font-size: var(--size-1000);
+		}
+
+		// Row of line X's right under the title (above the All Fish search and key), same as under the sort tabs
+		&::after {
+			@include x-border;
+			margin-top: var(--size-080);
 		}
 	}
 }

@@ -10,8 +10,9 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: var(--size-050) var(--size-100);
-	font-size: var(--size-100);
+	font-size: var(--size-090);
 	font-family: var(--font-platform);
+	--tracking: normal;
 	font-weight: 400;
 	text-transform: lowercase;
 

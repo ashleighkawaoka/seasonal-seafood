@@ -58,8 +58,9 @@
 		padding: 0;
 		color: var(--yellow);
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
-		font-size: var(--size-700);
+		font-size: var(--size-600);
 		line-height: var(--display-line-height);
 		text-transform: uppercase;
 		white-space: nowrap;
@@ -96,8 +97,9 @@
 		margin-top: var(--size-080);
 		color: var(--black);
 		font-family: var(--font-modernoir);
+		--tracking: normal;
 		font-size: var(--size-300);
-		line-height: 1.1;
+		line-height: 1;
 		text-align: center;
 		text-transform: uppercase;
 	}

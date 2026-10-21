@@ -34,10 +34,7 @@ const summary = computed(() => {
         :class="`season-bar__month--${month.status}`"
       >
         <span class="season-bar__diamond" :class="{ 'season-bar__diamond--frozen': month.isFrozen }" />
-        <span v-if="labels" class="season-bar__label">
-          <span class="season-bar__label-short">{{ month.letter }}</span>
-          <span class="season-bar__label-long">{{ month.abbr }}</span>
-        </span>
+        <span v-if="labels" class="season-bar__label">{{ month.abbr }}</span>
       </li>
     </ol>
   </div>

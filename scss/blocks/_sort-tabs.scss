@@ -1,13 +1,20 @@
 @use "../components" as *;
 
 .sort-tabs {
-	padding: var(--size-600) var(--gutter) var(--size-700);
+	padding: var(--size-600) var(--gutter) var(--size-500);
 	text-align: center;
 
+	// Row of line X's under the tabs, same as under the fish cards
+	&::after {
+		@include x-border;
+		margin-top: var(--size-300);
+	}
+
 	&__label {
-		margin-bottom: var(--size-200);
+		margin-bottom: var(--size-300);
 		font-family: var(--font-modernoir);
-		font-size: var(--size-200);
+		--tracking: normal;
+		font-size: var(--size-300);
 		font-weight: 400;
 		text-transform: uppercase;
 	}
@@ -29,6 +36,7 @@
 
 	&__link {
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
 		// Same sizes as the All Fish / Fish Markets page titles
 		font-size: var(--size-900);

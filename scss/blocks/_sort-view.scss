@@ -17,10 +17,10 @@
 
 	&__empty {
 		padding-inline: var(--gutter);
-		font-family: var(--font-display);
-		word-spacing: var(--display-word-spacing);
-		line-height: var(--display-line-height);
-		font-size: var(--size-700);
-		text-transform: uppercase;
+		font-family: var(--font-platform);
+		--tracking: normal;
+		font-size: var(--size-090);
+		font-weight: 400;
+		line-height: 1.2;
 	}
 }

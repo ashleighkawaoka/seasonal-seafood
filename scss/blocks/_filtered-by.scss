@@ -4,6 +4,7 @@
 	&__label {
 		margin-bottom: var(--size-060);
 		font-family: var(--font-platform);
+		--tracking: normal;
 		font-size: var(--size-100);
 		font-weight: 400;
 	}
@@ -20,6 +21,7 @@
 	&__placeholder {
 		color: var(--color-highlight);
 		font-family: var(--font-modernoir);
+		--tracking: normal;
 		font-size: var(--size-400);
 		text-transform: uppercase;
 	}
@@ -34,6 +36,19 @@
 		display: flex;
 		align-items: center;
 		gap: var(--size-050);
+	}
+
+	// Same look as the filter buttons above, in the highlight color since they're selected
+	&__tag {
+		padding: var(--size-080) var(--size-400);
+		background: var(--color-highlight);
+		box-shadow: 0 var(--size-010) 0 var(--black);
+		color: var(--black);
+		font-family: var(--font-modernoir);
+		--tracking: normal;
+		font-size: var(--size-400);
+		line-height: 1.1;
+		text-transform: uppercase;
 	}
 
 	&__remove {

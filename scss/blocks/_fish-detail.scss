@@ -34,7 +34,10 @@
 	}
 
 	&__name {
+		// Full width so the X row under it runs margin to margin
+		justify-self: stretch;
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
 		font-size: var(--size-900);
 		line-height: var(--display-line-height);
@@ -42,6 +45,12 @@
 
 		@media screen and (min-width: $medium) {
 			font-size: var(--size-1000);
+		}
+
+		// Row of line X's right under the name, same as under the page titles
+		&::after {
+			@include x-border;
+			margin-top: var(--size-080);
 		}
 	}
 
@@ -80,9 +89,9 @@
 	&__heading {
 		margin-bottom: var(--size-200);
 		font-family: var(--font-sans);
+		--tracking: var(--herbus-tracking);
 		font-size: var(--size-090);
 		font-weight: 500;
-		letter-spacing: 0.02em;
 		text-transform: uppercase;
 
 		&--center {
@@ -93,9 +102,9 @@
 	&__subheading {
 		margin: var(--size-300) 0 var(--size-080);
 		font-family: var(--font-sans);
+		--tracking: var(--herbus-tracking);
 		font-size: var(--size-090);
 		font-weight: 500;
-		letter-spacing: 0.02em;
 		text-transform: uppercase;
 	}
 
@@ -137,8 +146,9 @@
 		padding: var(--size-030) var(--size-070);
 		background: var(--yellow);
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
-		font-size: var(--size-700);
+		font-size: var(--size-600);
 		line-height: var(--display-line-height);
 		text-transform: uppercase;
 	}
@@ -147,8 +157,9 @@
 		margin-block: var(--size-060);
 		color: var(--yellow);
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
-		font-size: var(--size-500);
+		font-size: var(--size-400);
 		line-height: var(--display-line-height);
 		text-transform: uppercase;
 	}
@@ -158,6 +169,7 @@
 		background: color-mix(in srgb, var(--yellow) 50%, transparent);
 		color: var(--yellow);
 		font-family: var(--font-platform);
+		--tracking: normal;
 		font-size: var(--size-100);
 		line-height: 1.2;
 	}
@@ -175,19 +187,21 @@
 	}
 
 	&__method {
-		padding: var(--size-060) var(--size-200);
+		padding: var(--size-050) var(--size-080);
 		background: var(--white);
 		box-shadow: 0 var(--size-010) 0 var(--black);
 		font-family: var(--font-modernoir);
-		line-height: 1.1;
-		font-size: var(--size-400);
+		--tracking: normal;
+		line-height: 1;
+		font-size: var(--size-300);
 		text-transform: uppercase;
 	}
 
 	&__pairings {
 		font-family: var(--font-modernoir);
-		font-size: var(--size-400);
-		line-height: 1.15;
+		--tracking: normal;
+		font-size: var(--size-300);
+		line-height: 1;
 		text-transform: uppercase;
 	}
 }

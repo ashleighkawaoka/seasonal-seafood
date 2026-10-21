@@ -19,10 +19,11 @@
 
 	&__end {
 		flex: none;
-		color: var(--black);
+		color: var(--yellow);
 		font-family: var(--font-display);
+		--tracking: normal;
 		word-spacing: var(--display-word-spacing);
-		font-size: var(--size-400);
+		font-size: var(--size-500);
 		line-height: 1;
 		text-transform: uppercase;
 	}
@@ -33,7 +34,7 @@
 		flex: 1 0 100%;
 		order: 1;
 		height: var(--size-010);
-		background: var(--yellow);
+		background: var(--black);
 
 		@media screen and (min-width: $medium) {
 			flex-basis: auto;
@@ -61,6 +62,7 @@
 		position: absolute;
 		color: var(--black);
 		font-family: var(--font-platform);
+		--tracking: normal;
 		font-size: var(--size-090);
 		line-height: 1;
 		transform: translateX(-50%);

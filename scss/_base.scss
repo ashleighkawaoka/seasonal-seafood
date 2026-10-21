@@ -6,7 +6,15 @@
 
 \*----------------------------------------------*/
 
+/* Read on every element so the em is worked out at that element's own font size.
+   Herbus text gets --herbus-tracking; anything set in another font sets --tracking: normal. */
+* {
+	letter-spacing: var(--tracking, normal);
+}
+
 body {
+	--tracking: var(--herbus-tracking);
+
 	background: var(--red);
 	color: var(--black);
 	font-family: var(--font-sans);

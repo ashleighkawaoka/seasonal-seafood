@@ -38,3 +38,16 @@ $desktop-nav: $small;
 	mask: linear-gradient(#000 0 0) center / 25% 25% no-repeat, linear-gradient(#000 0 0);
 	mask-composite: exclude;
 }
+
+/* Single X drawn with two lines, inset from the tile edges so the strokes never get clipped */
+$x-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 2L8 8M8 2L2 8' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E");
+
+/* Row of X's for a pseudo-element. "round" fits a whole number of X's so none get cut off at the edge. */
+@mixin x-border {
+	content: "";
+	display: block;
+	height: var(--size-080);
+	background: currentColor;
+	-webkit-mask: $x-pattern left center / var(--size-080) var(--size-080) round no-repeat;
+	mask: $x-pattern left center / var(--size-080) var(--size-080) round no-repeat;
+}

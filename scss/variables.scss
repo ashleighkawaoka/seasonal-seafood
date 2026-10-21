@@ -77,6 +77,8 @@
 	--font-herbus: "Herbus", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	// Platform stays on the keys (season and habitat legends)
 	--font-platform: "Platform", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	// Extra space between letters in Herbus. Elements in other fonts switch it off with --tracking: normal
+	--herbus-tracking: 0.05em;
 }
 
 
