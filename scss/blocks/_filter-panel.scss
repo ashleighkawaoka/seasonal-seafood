@@ -40,7 +40,7 @@
 		padding: var(--size-070) var(--size-400);
 		background: var(--white);
 		box-shadow: 0 var(--size-010) 0 var(--black);
-		font-family: var(--font-display);
+		font-family: var(--font-modernoir);
 		font-size: var(--size-400);
 		line-height: 1.1;
 		text-transform: uppercase;
@@ -70,6 +70,7 @@
 		justify-self: center;
 		gap: var(--size-040);
 		color: var(--white);
+		font-family: var(--font-platform);
 		font-size: var(--size-090);
 
 		.icon {

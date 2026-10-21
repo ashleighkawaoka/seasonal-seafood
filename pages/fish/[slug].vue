@@ -65,11 +65,11 @@ const methods = computed(() => (fish.value.cookingMethods ?? []).map(methodTitle
 
     <section class="fish-detail__section" aria-labelledby="methods-heading">
       <h2 id="methods-heading" class="fish-detail__heading">Good for</h2>
-      <HeartyScale class="fish-detail__hearty" :fish="fish" />
       <ul v-if="methods.length" class="fish-detail__methods">
         <li v-for="method in methods" :key="method" class="fish-detail__method">{{ method }}</li>
       </ul>
       <p v-else class="fish-detail__text">Best used as a flavoring rather than cooked on its own.</p>
+      <HeartyScale class="fish-detail__hearty" :fish="fish" />
 
       <template v-if="fish.pairings?.length">
         <h3 class="fish-detail__subheading">Pairs well with</h3>

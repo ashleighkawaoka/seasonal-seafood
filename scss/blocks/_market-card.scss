@@ -19,34 +19,23 @@
 		padding: var(--size-200) var(--size-300) var(--size-500);
 	}
 
-	// Distance rank in a white circle
-	&__number {
-		display: grid;
-		place-items: center;
-		width: var(--size-500);
-		height: var(--size-500);
-		border-radius: 50%;
-		background: var(--white);
-		font-family: var(--font-display);
-		font-size: var(--size-300);
-		line-height: 1;
-	}
-
 	&__name {
 		color: var(--yellow);
 		font-family: var(--font-display);
-		font-size: var(--size-600);
-		line-height: 1;
+		word-spacing: var(--display-word-spacing);
+		font-size: var(--size-800);
+		// Tighter than the site-wide display leading so long names stack closely
+		line-height: 0.8;
 		text-transform: uppercase;
 	}
 
 	&__address {
 		display: grid;
-		font-family: var(--font-sans);
-		font-size: var(--size-300);
+		font-family: var(--font-modernoir);
+		font-size: var(--size-400);
 		font-style: normal;
 		font-weight: 400;
-		line-height: 1.3;
+		line-height: 1;
 	}
 
 	&__street {

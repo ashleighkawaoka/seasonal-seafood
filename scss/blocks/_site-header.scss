@@ -10,9 +10,9 @@
 	padding-inline: var(--gutter);
 	background: var(--color-nav);
 	color: var(--color-nav-text);
-	font-family: var(--font-sans);
+	font-family: var(--font-herbus);
 	font-size: var(--size-090);
-	font-weight: 400;
+	font-weight: 500;
 	text-transform: uppercase;
 
 	@media screen and (min-width: $small) {
@@ -29,6 +29,12 @@
 		align-items: center;
 		gap: var(--size-060);
 		text-transform: uppercase;
+
+		// Circle sized close to the text so it doesn't overpower it
+		.icon {
+			width: var(--size-100);
+			height: var(--size-100);
+		}
 	}
 }
 

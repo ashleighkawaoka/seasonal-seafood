@@ -7,7 +7,9 @@
 	&__empty {
 		padding: 0 var(--gutter) var(--size-700);
 		font-family: var(--font-display);
-		font-size: var(--size-400);
+		word-spacing: var(--display-word-spacing);
+		line-height: var(--display-line-height);
+		font-size: var(--size-700);
 		text-align: center;
 		text-transform: uppercase;
 	}

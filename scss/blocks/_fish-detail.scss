@@ -35,12 +35,13 @@
 
 	&__name {
 		font-family: var(--font-display);
-		font-size: var(--size-600);
-		line-height: 1;
+		word-spacing: var(--display-word-spacing);
+		font-size: var(--size-900);
+		line-height: var(--display-line-height);
 		text-transform: uppercase;
 
 		@media screen and (min-width: $medium) {
-			font-size: var(--size-700);
+			font-size: var(--size-1000);
 		}
 	}
 
@@ -136,8 +137,9 @@
 		padding: var(--size-030) var(--size-070);
 		background: var(--yellow);
 		font-family: var(--font-display);
-		font-size: var(--size-400);
-		line-height: 1.1;
+		word-spacing: var(--display-word-spacing);
+		font-size: var(--size-700);
+		line-height: var(--display-line-height);
 		text-transform: uppercase;
 	}
 
@@ -145,8 +147,9 @@
 		margin-block: var(--size-060);
 		color: var(--yellow);
 		font-family: var(--font-display);
-		font-size: var(--size-200);
-		line-height: 1;
+		word-spacing: var(--display-word-spacing);
+		font-size: var(--size-500);
+		line-height: var(--display-line-height);
 		text-transform: uppercase;
 	}
 
@@ -154,14 +157,15 @@
 		padding: var(--size-200);
 		background: color-mix(in srgb, var(--yellow) 50%, transparent);
 		color: var(--yellow);
-		font-family: var(--font-sans);
+		font-family: var(--font-platform);
 		font-size: var(--size-100);
-		line-height: 1.35;
+		line-height: 1.2;
 	}
 
 	// Thickness scale between the Good for heading and the methods
+	// Thickness scale under the cooking methods
 	&__hearty {
-		margin-bottom: var(--size-400);
+		margin-top: var(--size-500);
 	}
 
 	&__methods {
@@ -174,13 +178,14 @@
 		padding: var(--size-060) var(--size-200);
 		background: var(--white);
 		box-shadow: 0 var(--size-010) 0 var(--black);
-		font-family: var(--font-display);
+		font-family: var(--font-modernoir);
+		line-height: 1.1;
 		font-size: var(--size-400);
 		text-transform: uppercase;
 	}
 
 	&__pairings {
-		font-family: var(--font-display);
+		font-family: var(--font-modernoir);
 		font-size: var(--size-400);
 		line-height: 1.15;
 		text-transform: uppercase;

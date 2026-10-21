@@ -39,8 +39,9 @@
 
 	&__name {
 		font-family: var(--font-display);
-		font-size: var(--size-500);
-		line-height: 1;
+		word-spacing: var(--display-word-spacing);
+		font-size: var(--size-700);
+		line-height: var(--display-line-height);
 		text-transform: uppercase;
 	}
 
@@ -59,8 +60,11 @@
 	}
 
 	// Tags inside cards run one size bigger than the shared tag style
+	// Lists on the cards (tags, method boxes, pairings / months) use TT Modernoir
 	&__tag {
+		font-family: var(--font-modernoir);
 		font-size: var(--size-300);
+		line-height: 1.1;
 	}
 
 	&__methods {
@@ -74,8 +78,9 @@
 		background: var(--white);
 		box-shadow: 0 var(--size-010) 0 var(--black);
 		color: var(--black);
-		font-family: var(--font-display);
+		font-family: var(--font-modernoir);
 		font-size: var(--size-300);
+		line-height: 1.1;
 		text-align: center;
 		text-transform: uppercase;
 
@@ -86,7 +91,7 @@
 
 	// Plain comma-separated text, used for pairings and in-season months
 	&__list {
-		font-family: var(--font-display);
+		font-family: var(--font-modernoir);
 		font-size: var(--size-300);
 		line-height: 1.15;
 		text-transform: uppercase;
@@ -126,7 +131,7 @@
 	}
 
 	&--full &__name {
-		font-size: var(--size-700);
+		font-size: var(--size-900);
 	}
 
 	&--full &__season {

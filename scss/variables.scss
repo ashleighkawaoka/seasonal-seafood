@@ -30,6 +30,11 @@
 	--size-500: 2.441rem;
 	--size-600: 3.052rem;
 	--size-700: 3.815rem;
+	--size-800: 4.768rem;
+	--size-900: 5.96rem;
+	--size-1000: 7.451rem;
+	--size-1100: 9.313rem;
+	--size-1200: 11.642rem;
 
 	@media screen and (min-width: c.$x-small) {
 		font-size: 1.1rem;
@@ -58,8 +63,20 @@
 ------------------------------------------------*/
 :root {
 	/* TT Modernoir loads from Typekit (nuxt.config.ts), Platform from public/fonts (_fonts.scss) */
-	--font-display: "tt-modernoir", sans-serif;
-	--font-sans: "Platform", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	// --font-display: "tt-modernoir", sans-serif;
+	--font-display: "Albuquerque", sans-serif;
+	// TT Modernoir is still used for the lists on fish cards
+	--font-modernoir: "tt-modernoir", sans-serif;
+	// Extra space between words in the display font (the licensed Albuquerque spaces normally)
+	--display-word-spacing: 0;
+	// Line spacing for every piece of display-font text
+	--display-line-height: 0.9;
+	// --font-sans: "Platform", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--font-sans: "Herbus", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	// Herbus stays on the main nav
+	--font-herbus: "Herbus", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	// Platform stays on the keys (season and habitat legends)
+	--font-platform: "Platform", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 

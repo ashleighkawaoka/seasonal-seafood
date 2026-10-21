@@ -3,9 +3,9 @@
 
 	&__label {
 		margin-bottom: var(--size-060);
-		font-size: var(--size-200);
-		font-weight: 700;
-		text-transform: uppercase;
+		font-family: var(--font-platform);
+		font-size: var(--size-100);
+		font-weight: 400;
 	}
 
 	&__box {
@@ -19,7 +19,7 @@
 
 	&__placeholder {
 		color: var(--color-highlight);
-		font-family: var(--font-display);
+		font-family: var(--font-modernoir);
 		font-size: var(--size-400);
 		text-transform: uppercase;
 	}

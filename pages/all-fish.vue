@@ -16,6 +16,10 @@ useHead({ title: 'All fish' })
   <div class="all-fish">
     <header class="page-header page-header--with-key">
       <h1 class="page-header__title">All fish</h1>
+      <div class="all-fish__search">
+        <label class="screen-reader-text" for="fish-search">Search for a fish</label>
+        <SearchField id="fish-search" v-model="search" variant="white" placeholder="Search for a fish" />
+      </div>
       <ul class="habitat-legend">
         <li
           v-for="habitat in HABITATS"
@@ -27,10 +31,6 @@ useHead({ title: 'All fish' })
           {{ habitat.title }}
         </li>
       </ul>
-      <div class="all-fish__search">
-        <label class="screen-reader-text" for="fish-search">Search for a fish</label>
-        <SearchField id="fish-search" v-model="search" variant="white" placeholder="Search for a fish" />
-      </div>
     </header>
 
     <ul v-if="fish.length" class="fish-grid fish-grid--large">

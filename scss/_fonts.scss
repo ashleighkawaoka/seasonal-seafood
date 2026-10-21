@@ -38,3 +38,37 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+/* Albuquerque (licensed), in place of TT Modernoir (see --font-display in variables.scss) */
+@font-face {
+	font-family: "Albuquerque";
+	src: url("/fonts/Albuquerque-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Herbus (trial), trying it in place of Platform (see --font-sans in variables.scss) */
+@font-face {
+	font-family: "Herbus";
+	src: url("/fonts/TRIAL_OTT_Herbus-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Herbus";
+	src: url("/fonts/TRIAL_OTT_Herbus-Medium.ttf") format("truetype");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Herbus";
+	src: url("/fonts/TRIAL_OTT_Herbus-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
