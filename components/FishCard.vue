@@ -43,7 +43,7 @@ const methods = computed(() =>
       <img
         v-if="fish.imageUrl"
         class="fish-card__image"
-        :src="`${fish.imageUrl}?w=600&auto=format`"
+        :src="`${fish.imageUrl}?w=${variant === 'full' ? 1200 : 600}&auto=format`"
         :alt="fish.imageAlt || ''"
         loading="lazy"
       />

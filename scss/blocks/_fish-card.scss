@@ -12,8 +12,10 @@
 		align-items: center;
 		justify-content: center;
 		aspect-ratio: 4 / 3;
+		padding-inline: var(--size-100);
 		overflow: hidden;
-		background: var(--card-gradient);
+		// Gradient behind the image, turned off for now
+		// background: var(--card-gradient);
 	}
 
 	&__image {
@@ -118,7 +120,9 @@
 
 	&--full &__media {
 		aspect-ratio: 16 / 9;
-		background: var(--all-fish-card-gradient);
+		padding: 0 var(--size-300);
+		// Gradient behind the image, turned off for now
+		// background: var(--all-fish-card-gradient);
 	}
 
 	&--full &__name {

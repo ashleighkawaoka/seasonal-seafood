@@ -11,12 +11,14 @@
 		text-align: center;
 	}
 
+	// 16:9 box across the full content width; the image grows to fill it, with room on the sides
 	&__media {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: min(100%, calc(var(--size-700) * 7));
+		width: 100%;
 		aspect-ratio: 16 / 9;
+		padding-inline: var(--size-300);
 	}
 
 	&__image {

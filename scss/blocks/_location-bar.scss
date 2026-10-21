@@ -16,13 +16,13 @@
 		width: 100%;
 		padding-block: var(--size-070) var(--size-030);
 		font-family: var(--font-display);
-		font-size: var(--size-400);
+		font-size: var(--size-300);
 		line-height: 1;
 		text-align: left;
 		text-transform: uppercase;
 
 		@media screen and (min-width: $medium) {
-			font-size: var(--size-500);
+			font-size: var(--size-400);
 		}
 	}
 
@@ -56,12 +56,12 @@
 
 	&__presets {
 		font-family: var(--font-display);
-		font-size: var(--size-400);
+		font-size: var(--size-300);
 		line-height: 1.15;
 		text-transform: uppercase;
 
 		@media screen and (min-width: $medium) {
-			font-size: var(--size-500);
+			font-size: var(--size-400);
 		}
 	}
 
@@ -77,8 +77,14 @@
 
 	&__search {
 		--search-accent: var(--color-band-active);
+		// Same size as the location name and nearby list
+		--search-size: var(--size-300);
 
 		max-width: calc(var(--size-700) * 6);
+
+		@media screen and (min-width: $medium) {
+			--search-size: var(--size-400);
+		}
 	}
 
 	&__heading {
@@ -120,7 +126,7 @@
 		background: var(--white);
 		color: var(--black);
 		font-family: var(--font-sans);
-		font-size: var(--size-200);
+		font-size: var(--size-100);
 		font-weight: 400;
 
 		&:disabled {

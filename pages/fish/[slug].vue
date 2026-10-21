@@ -18,16 +18,16 @@ const methods = computed(() => (fish.value.cookingMethods ?? []).map(methodTitle
 <template>
   <article class="fish-detail">
     <header class="fish-detail__hero">
+      <h1 class="fish-detail__name">{{ fish.name }}</h1>
       <div class="fish-detail__media">
         <img
           v-if="fish.imageUrl"
           class="fish-detail__image"
-          :src="`${fish.imageUrl}?w=1000&auto=format`"
+          :src="`${fish.imageUrl}?w=2000&auto=format`"
           :alt="fish.imageAlt || ''"
         />
         <span v-else class="fish-detail__placeholder" aria-hidden="true">Image coming soon</span>
       </div>
-      <h1 class="fish-detail__name">{{ fish.name }}</h1>
 
       <div class="fish-detail__season">
         <SeasonBar class="fish-detail__season-bar" :fish="fish" labels />
